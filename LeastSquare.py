@@ -25,7 +25,6 @@ class LeastSquare:
             y.append(yline)
         return y
     def predictYderivative(self, x):
-        # 画导数
         order = self.order
         solver = self.solver
         yDer = []
@@ -43,7 +42,6 @@ class LeastSquare:
 
 
     def solve(self):
-        # 进行曲线拟合
         order = self.order
         xa = self.xs
         ya = self.ys

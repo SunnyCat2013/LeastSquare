@@ -18,7 +18,6 @@ infile = 'test.csv'
 # preprocess data
 def importData():
     print('-------reading data from file:', infile)
-
     xs = []
     ys = []
     with open(infile, 'r') as inf:
@@ -26,7 +25,6 @@ def importData():
         print('delete header:', lines[0])
         del lines[0]
         for line in lines:
-            # print(line)
             line = line.strip().split()
             if len(line) != 2:
                 print(line)
@@ -37,18 +35,12 @@ def importData():
     print('-------finished:')
     print('length of xs:', len(xs))
     print('length of ys:', len(ys))
-    acc = 0
-    y_acc = []
-    for i in ys:
-        acc += i
-        y_acc.append(acc)
-
-    return np.array(xs).reshape(-1, 1), np.array(ys), np.array(y_acc)
+    return np.array(xs).reshape(-1, 1), np.array(ys)
 
 def main():
     xs, ys, y_acc = importData()
     x = xs
-    y = y_acc
+    y = ys
 
     lqObj = LeastSquare(x,y)
 
